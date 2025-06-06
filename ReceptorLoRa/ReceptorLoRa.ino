@@ -15,7 +15,7 @@ String dados = "Aguardando dados...";
 //Pagina HTML com atualização a cada 2 segundos
 void handleRoot() {
   String html = "<!DOCTYPE html><html><head>";
-  html += "<meta http-equiv='refresh' content='2'>"; // Recarrega a cada 2 segundos
+  html += "<meta http-equiv='refresh' content='1'>";
   html += "<meta charset='utf-8'><title>Dados LoRa</title></head><body>";
   html += "<h2>Último dado recebido via LoRa:</h2>";
   html += "<p style='font-size:24px;'>" + dados + "</p>";
@@ -53,18 +53,18 @@ void setup() {
 }
 
 void loop() {
+  char buff[16] = {0};
   //Checa se há pacote via LoRa
   int packetSize = LoRa.parsePacket();
-  if (packetSize) {
-    String recebido = "";
-    while (LoRa.available()) {
-      recebido += (char)LoRa.read();
+
+  if (packetSize == 11) {
+    for(uint8_t i = 0; i < packetSize; i++) {
+      buff[i] = LoRa.read();
+      Serial.printf("%c", buff[i]);
     }
-    dados = recebido;
-    Serial.print("Recebido via LoRa: ");
-    Serial.println(dados);
   }
 
   server.handleClient();
   delay(10);
 }
+
