@@ -1,4 +1,7 @@
 #include <LoRa.h>
+
+unsigned long packets_sent = 0;
+
 void setup() {
   Serial.begin(115200);
   LoRa.setPins(18, 14, 26);
@@ -16,8 +19,6 @@ void loop() {
 
     Serial.readBytes(buff, data_length);
 
-    Serial.printf("Enviando: ");
-    
     LoRa.beginPacket();
     for(uint8_t i = 0; i < data_length; i++) {
       LoRa.print(buff[i]);
@@ -25,7 +26,8 @@ void loop() {
     }
     LoRa.endPacket();
 
-    Serial.println("\nEnviado via LoRa!");
+		packets_sent++;
+    Serial.printf("Enviei %d pacotes!\n", packets_sent);
   }
 
   delay(128);

@@ -3,6 +3,8 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
+unsigned long packets_rcvd = 0;
+
 //Credenciais Wi-Fi
 const char* ssid = "Giovane";
 const char* password = "12345678";
@@ -58,6 +60,9 @@ void loop() {
   int packetSize = LoRa.parsePacket();
 
   if (packetSize == 11) {
+		packets_rcvd++;
+		Serial.printf("Recebi %d pacotes!\n", packets_rcvd);
+
     for(uint8_t i = 0; i < packetSize; i++) {
       buff[i] = LoRa.read();
       Serial.printf("%c", buff[i]);
