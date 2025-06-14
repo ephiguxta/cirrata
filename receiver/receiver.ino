@@ -14,7 +14,7 @@ String dados = "Aguardando dados...";
 
 String rpm;
 String velo;
-String cvt_temp;
+unsigned int cvt_temp;
 String comb;
 
 unsigned long pkgs_recv = 0;
@@ -80,11 +80,11 @@ void handleRoot() {
              "  <div class=\"info-box\">"
              "    <div class=\"label\">Temperatura da CVT:</div>"
              "    <div class=\"value\" id=\"temp\">"
-    + cvt_temp + " °C</div>"
-                 "  </div>"
-                 "  <div class=\"info-box\">"
-                 "    <div class=\"label\">Combustível:</div>"
-                 "    <div class=\"value\" id=\"comb\">"
+    + String(cvt_temp) + " °C</div>"
+                         "  </div>"
+                         "  <div class=\"info-box\">"
+                         "    <div class=\"label\">Combustível:</div>"
+                         "    <div class=\"value\" id=\"comb\">"
     + comb + "</div>"
              "  </div>"
              "  <div class=\"info-box\">"
@@ -153,7 +153,7 @@ void loop() {
     velo = atoi(tmp_conversor);
 
     snprintf(tmp_conversor, 8, "%c%c", buff[7], buff[8]);
-    cvt_temp = atoi(tmp_conversor);
+    cvt_temp = strtol(tmp_conversor, NULL, 16);
 
     snprintf(tmp_conversor, 8, "%c", buff[9]);
     comb = atoi(tmp_conversor);
@@ -169,9 +169,8 @@ void loop() {
 
   rpm = "";
   velo = "";
-  cvt_temp = "";
+  cvt_temp = 0;
   comb = "";
 
   delay(10);
 }
-
