@@ -4,16 +4,16 @@
 #include <WebServer.h>
 
 //Credenciais Wi-Fi
-const char* ssid = "Giovane";
-const char* password = "12345678";
+const char* ssid = "CELESTE";
+const char* password = "c3l3st31";
 
 //Webserver na porta 80
 WebServer server(80);
 
 String dados = "Aguardando dados...";
 
-String rpm;
-String velo;
+unsigned int rpm;
+unsigned int velo;
 unsigned int cvt_temp;
 String comb;
 
@@ -70,16 +70,16 @@ void handleRoot() {
     "  <div class=\"info-box\">"
     "    <div class=\"label\">RPM:</div>"
     "    <div class=\"value\" id=\"rpm\">"
-    + rpm + " </div>"
-            "  </div>"
-            "  <div class=\"info-box\">"
-            "    <div class=\"label\">Velocidade:</div>"
-            "    <div class=\"value\" id=\"velocidade\">"
-    + velo + " km/h</div>"
-             "  </div>"
-             "  <div class=\"info-box\">"
-             "    <div class=\"label\">Temperatura da CVT:</div>"
-             "    <div class=\"value\" id=\"temp\">"
+    + String(rpm) + " </div>"
+                    "  </div>"
+                    "  <div class=\"info-box\">"
+                    "    <div class=\"label\">Velocidade:</div>"
+                    "    <div class=\"value\" id=\"velocidade\">"
+    + String(velo) + " km/h</div>"
+                     "  </div>"
+                     "  <div class=\"info-box\">"
+                     "    <div class=\"label\">Temperatura da CVT:</div>"
+                     "    <div class=\"value\" id=\"temp\">"
     + String(cvt_temp) + " °C</div>"
                          "  </div>"
                          "  <div class=\"info-box\">"
@@ -147,10 +147,10 @@ void loop() {
 
     // RPM
     snprintf(tmp_conversor, 8, "%c%c%c", buff[2], buff[3], buff[4]);
-    rpm = atoi(tmp_conversor);
+    rpm = strtol(tmp_conversor, NULL, 16);
 
     snprintf(tmp_conversor, 8, "%c%c", buff[5], buff[6]);
-    velo = atoi(tmp_conversor);
+    velo = strtol(tmp_conversor, NULL, 16);
 
     snprintf(tmp_conversor, 8, "%c%c", buff[7], buff[8]);
     cvt_temp = strtol(tmp_conversor, NULL, 16);
@@ -167,8 +167,8 @@ void loop() {
     server.handleClient();
   }
 
-  rpm = "";
-  velo = "";
+  rpm = 0;
+  velo = 0;
   cvt_temp = 0;
   comb = "";
 
