@@ -4,8 +4,8 @@
 #include <WebServer.h>
 
 //Credenciais Wi-Fi
-const char* ssid = "CELESTE";
-const char* password = "c3l3st31";
+const char* ssid = "Giovane";
+const char* password = "12345678";
 
 //Webserver na porta 80
 WebServer server(80);
