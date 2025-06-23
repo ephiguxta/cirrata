@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
-		<meta http-equiv="refresh" content="0.5">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width", initial-scale="1.0" />
 		<title>Telemetria LoRa Baja Guaicurus</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
+		<script>
+			const socket = new WebSocket('ws://localhost:8000');
+
+			socket.onopen = function (event) {
+				alert('Conectado!');
+			};
+
+			socket.onmessage = function (event) {
+				console.log(event.data);
+			};
+
+		</script>
 		<h1>Telemetria LoRa Baja Guaicurus</h1>
 		<div class="info-box">
 			<div class="label">RPM:</div>
