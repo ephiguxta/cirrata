@@ -2,9 +2,135 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid ef8082a7-51b7-4699-9341-b4a68179aab4)
+	(uuid "ef8082a7-51b7-4699-9341-b4a68179aab4")
 	(paper "A4")
 	(lib_symbols)
+	(sheet
+		(at 137.16 31.75)
+		(size 33.02 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "12a1ecc4-2580-4621-b729-88d1ffece94e")
+		(property "Sheetname" "lora_transceiver"
+			(at 137.16 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "lora_transceiver.kicad_sch"
+			(at 137.16 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cirrata_pcb"
+				(path "/ef8082a7-51b7-4699-9341-b4a68179aab4"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 33.02 31.75)
+		(size 33.02 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "6c939b69-1007-4fbe-aa2a-3e0fa003f6ff")
+		(property "Sheetname" "power"
+			(at 33.02 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 33.02 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cirrata_pcb"
+				(path "/ef8082a7-51b7-4699-9341-b4a68179aab4"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 83.82 31.75)
+		(size 33.02 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f543bcda-64c0-4513-87a0-dc055297b4cd")
+		(property "Sheetname" "esp_32"
+			(at 83.82 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "esp32_circuit.kicad_sch"
+			(at 83.82 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cirrata_pcb"
+				(path "/ef8082a7-51b7-4699-9341-b4a68179aab4"
+					(page "3")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
